@@ -14,6 +14,8 @@ spec:
     applications:
       terminal:
         enabled: true
+      editor:
+        enabled: true
       registry:
         enabled: true
     dashboards:
@@ -40,6 +42,8 @@ spec:
       budget: x-small
     applications:
       terminal:
+        enabled: true
+      editor:
         enabled: true
       registry:
         enabled: true

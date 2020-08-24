@@ -1,4 +1,15 @@
 modules:
-    registry-credentials:
+    challenge-overview:
+        name: Challenge Overview
+        exit_sign: Starte Challenge
+    common/registry-credentials:
         name: Registry Credentials
-        exit_sign: Have Fun!!
+    developer/story:
+        name: Challenge story - Developer
+    devops/story:
+        name: Challenge story - DevOps
+    operations/story:
+        name: Challenge story - Operations
+    challenge-summary:
+        name: Challenge Summary
+        exit_sign: Finish Challenge

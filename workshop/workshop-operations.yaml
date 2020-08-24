@@ -2,4 +2,7 @@ name: Tanzu Challenge - Operations
 
 modules:
     activate:
-    - registry-credentials
+    - challenge-overview
+    - operations/story
+    - common/registry-credentials
+    - challenge-summary

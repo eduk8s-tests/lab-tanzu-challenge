@@ -2,4 +2,7 @@ name: Tanzu Challenge - DevOps
 
 modules:
     activate:
-    - registry-credentials
+    - challenge-overview
+    - devops/story
+    - common/registry-credentials
+    - challenge-summary

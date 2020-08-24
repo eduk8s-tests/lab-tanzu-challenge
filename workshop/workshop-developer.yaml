@@ -2,4 +2,7 @@ name: Tanzu Challenge - Developer
 
 modules:
     activate:
-    - registry-credentials
+    - challenge-overview
+    - developer/story
+    - common/registry-credentials
+    - challenge-summary

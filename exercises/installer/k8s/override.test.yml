@@ -2,7 +2,3 @@
 ---
 domain: test.com
 wildcard_domain: apps.test.com
-privileged_clusterrole_name: vmware-system-tmc-psp-privileged
-wavefront:
-  uri: https://vmware.wavefront.com
-  api_token:  API_TOKEN

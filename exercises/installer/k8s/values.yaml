@@ -2,18 +2,3 @@
 ---
 domain:
 wildcard_domain:
-privileged_clusterrole_name:  vmware-system-tmc-psp-privileged 
-
-registry:
-  namespace: tanzu-developer
-  name: registry
-  admin:
-    username: admin
-    password: admin123!
-  secrets:
-    #! Generate the secret by doing: `htpasswd -nb admin admin123!` or whatever user/password you want
-    htpasswd: 'admin:$2a$10$UJ9q77n9Vc0d8ppxomAxaeleIaeNX/5faYnt/PZLK20awaxSjxOgy'
-    hashared: replicated
-wavefront:
-  uri:
-  api_token:

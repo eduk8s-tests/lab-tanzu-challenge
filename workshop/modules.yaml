@@ -16,7 +16,7 @@ modules:
         name: Story (Ops)
     operations/tasks:
         name: Tasks (Ops)
-    common/install-requisited:
+    common/install-addons:
         name: Install Cluster Addons
     challenge-summary:
         name: Challenge Summary

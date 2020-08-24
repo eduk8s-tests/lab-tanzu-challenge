@@ -3,8 +3,8 @@ kind: Workshop
 metadata:
   name: lab-tanzu-challenge-developer
 spec:
-  title: Tanzu Challenge - Developer
-  description: Provides instructions to do the Tanzu Challenge, Developer story
+  title: Developer edition
+  description: Customer empathy challenge - Developer edition
   url: https://github.com/eduk8s-tests/lab-tanzu-challenge
   content:
     files: github.com/eduk8s-tests/lab-tanzu-challenge
@@ -30,8 +30,8 @@ kind: Workshop
 metadata:
   name: lab-tanzu-challenge-devops
 spec:
-  title: Tanzu Challenge - DevOps
-  description: Provides instructions to do the Tanzu Challenge, DevOps story
+  title: DevOps edition
+  description: Customer empathy challenge - DevOps edition
   url: https://github.com/eduk8s-tests/lab-tanzu-challenge
   content:
     files: github.com/eduk8s-tests/lab-tanzu-challenge
@@ -57,8 +57,8 @@ kind: Workshop
 metadata:
   name: lab-tanzu-challenge-operations
 spec:
-  title: Tanzu Challenge - Operations
-  description: Provides instructions to do the Tanzu Challenge, Operations story
+  title: Operations edition
+  description:  Customer empathy challenge - Operations edition
   url: https://github.com/eduk8s-tests/lab-tanzu-challenge
   content:
     files: github.com/eduk8s-tests/lab-tanzu-challenge

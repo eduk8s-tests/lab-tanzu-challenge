@@ -8,6 +8,10 @@ The goal of this exercise is to have you go through a real world scenario of a c
 
 You will find the survey in a tab in the platform.
 
+```dashboard:open-dashboard
+name: Survey
+```
+
 This challenge will offer three personas that you can choose from based upon your knowledge and experience. You should have chosen the one that you are most confident that you will be able to complete. 
 
 The personas are:

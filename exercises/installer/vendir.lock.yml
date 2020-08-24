@@ -1,0 +1,59 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: Update Contour Docker image to v1.7.0....
+      sha: c57014c9bf081485125ea538fe65eca580163072
+    path: upstream/contour
+  - manual: {}
+    path: downstream
+  - manual: {}
+    path: config
+  path: k8s/ingress
+- contents:
+  - githubRelease:
+      url: https://api.github.com/repos/pivotal/kpack/releases/27343776
+    path: upstream/kpack
+  - manual: {}
+    path: downstream
+  - manual: {}
+    path: config
+  path: k8s/kpack
+- contents:
+  - manual: {}
+    path: upstream
+  - manual: {}
+    path: downstream
+  - manual: {}
+    path: config
+  path: k8s/testapp
+- contents:
+  - githubRelease:
+      url: https://api.github.com/repos/tektoncd/pipeline/releases/29523427
+    path: upstream/pipeline
+  - githubRelease:
+      url: https://api.github.com/repos/tektoncd/triggers/releases/29172094
+    path: upstream/triggers
+  - githubRelease:
+      url: https://api.github.com/repos/tektoncd/dashboard/releases/29112372
+    path: upstream/dashboard
+  - manual: {}
+    path: downstream
+  - manual: {}
+    path: config
+  path: k8s/tekton
+- contents:
+  - git:
+      commitTitle: include path in endpoint uniqueness
+      sha: 8c677ac392b34e1912da2d59485841fc349017dc
+    path: upstream/collector
+  - git:
+      commitTitle: bump proxy version
+      sha: a12009736b797a193bdd3e844ab1183574112b26
+    path: upstream/proxy
+  - manual: {}
+    path: downstream
+  - manual: {}
+    path: config
+  path: k8s/wavefront
+kind: LockConfig

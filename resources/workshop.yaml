@@ -16,6 +16,9 @@ spec:
         enabled: true
       registry:
         enabled: true
+    dashboards:
+    - name: Survey
+      url: https://docs.google.com/forms/d/e/1FAIpQLScPK90aFENQgnC3hEBuo_kvdy3l1VkhvA8nc8QhNlKCBd9RLA/viewform?embedded=true
     env:
     - name: WORKSHOP_FILE
       value: workshop-developer.yaml
@@ -40,6 +43,9 @@ spec:
         enabled: true
       registry:
         enabled: true
+    dashboards:
+    - name: Survey
+      url: https://docs.google.com/forms/d/e/1FAIpQLScPK90aFENQgnC3hEBuo_kvdy3l1VkhvA8nc8QhNlKCBd9RLA/viewform?embedded=true
     env:
     - name: WORKSHOP_FILE
       value: workshop-devops.yaml
@@ -66,7 +72,7 @@ spec:
         enabled: true
     dashboards:
     - name: Survey
-      url: https://forms.gle/jg3GH5N2gLqezceE6
+      url: https://docs.google.com/forms/d/e/1FAIpQLScPK90aFENQgnC3hEBuo_kvdy3l1VkhvA8nc8QhNlKCBd9RLA/viewform?embedded=true
     env:
     - name: WORKSHOP_FILE
       value: workshop-operations.yaml

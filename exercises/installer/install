@@ -51,6 +51,7 @@ CLUSTER=`kubectl config view -o jsonpath='{ .contexts[?(@.name == "'$(kubectl co
 # CLI_ARGS
 SHOW_HELP="n"
 OVERRIDE_FILE=${OVERRIDE_FILE:-""}
+KUBECONFIG_FILE=${KUBECONFIG_FILE:-""}
 OVERLAY_FILE=${OVERLAY_FILE:-""}
 CONFIRM=${CONFIRM:-"true"}
 VERIFY=${VERIFY:-""}
@@ -60,7 +61,11 @@ overlay_opt=""
 
 
 function getExternalIP {
-local IP=$(kubectl get svc/envoy -n projectcontour -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null)
+local kubeconfig=""
+if [ "$KUBECONFIG_FILE" != "" ]; then
+  kubeconfig="--kubeconfig=$KUBECONFIG_FILE "
+fi
+local IP=$(kubectl $kubeconfig get svc/envoy -n projectcontour -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null)
 if [ "$IP" != "" ]; then
 python3 << EOF
 import socket
@@ -78,6 +83,11 @@ function install_command {
   local path=$2
   [ -z "$app_name" ] || [ -z "$path" ] && echo "Error" && exit 1
 
+  local kubeconfig=""
+  if [ "$KUBECONFIG_FILE" != "" ]; then
+    kubeconfig="--kubeconfig $KUBECONFIG_FILE "
+  fi
+
   # TODO: Optimize this to just query once 
   IP=$(getExternalIP)
   DOMAIN=""
@@ -85,8 +95,8 @@ function install_command {
     DOMAIN=" --data-value-yaml domain=$IP.nip.io --data-value-yaml wildcard_domain=apps.$IP.nip.io "
   fi
 
-  echo "ytt -f ${WORK_DIR}/k8s/values.yaml ${file_opt} ${DOMAIN} -f ${WORK_DIR}/$path/upstream -f ${WORK_DIR}/$path/config -f ${WORK_DIR}/$path/downstream ${overlay_opt} --ignore-unknown-comments | kapp deploy -a $app_name --diff-changes -n default -y -f -"
-  ytt -f ${WORK_DIR}/k8s/values.yaml ${file_opt} ${DOMAIN} -f ${WORK_DIR}/$path/upstream -f ${WORK_DIR}/$path/config -f ${WORK_DIR}/$path/downstream ${overlay_opt} --ignore-unknown-comments | kapp deploy -a $app_name --diff-changes -n default -y -f -
+  echo "ytt -f ${WORK_DIR}/k8s/values.yaml ${file_opt} ${DOMAIN} -f ${WORK_DIR}/$path/upstream -f ${WORK_DIR}/$path/config -f ${WORK_DIR}/$path/downstream ${overlay_opt} --ignore-unknown-comments | kapp deploy -a $app_name --diff-changes $kubeconfig -n default -y -f -"
+  ytt -f ${WORK_DIR}/k8s/values.yaml ${file_opt} ${DOMAIN} -f ${WORK_DIR}/$path/upstream -f ${WORK_DIR}/$path/config -f ${WORK_DIR}/$path/downstream ${overlay_opt} --ignore-unknown-comments | kapp deploy -a $app_name --diff-changes $kubeconfig -n default -y -f -
 }
 
 #
@@ -98,8 +108,13 @@ function uninstall_command {
   local path=$2
   [ -z "$app_name" ] || [ -z "$path" ] && echo "Error" && exit 1
 
-  echo "kapp delete -a ${app_name} -n default -y"
-  kapp delete -a ${app_name} -n default -y
+  local kubeconfig=""
+  if [ "$KUBECONFIG_FILE" != "" ]; then
+    kubeconfig="--kubeconfig $KUBECONFIG_FILE "
+  fi
+
+  echo "kapp delete -a ${app_name} $kubeconfig -n default -y"
+  kapp delete -a ${app_name} $kubeconfig -n default -y
 }
 
 function install_steps {
@@ -136,6 +151,7 @@ function help {
 function help-options {
   echo ""
   echo "Options:"
+  echo "    -k|--kubeconfig            Uses a Kubeconfig file"
   echo "    -u|--uninstall             Uninstalls a component"
   echo "    -h|--help                  Shows the help for the command"
 }
@@ -244,6 +260,11 @@ function parse_args {
       -h|--help)
         SHOW_HELP="true"
         shift # past argument
+        ;;
+      -k|--kubeconfig)
+        KUBECONFIG_FILE="$2"
+        shift # past argument
+        shift # past value
         ;;
       -v|--verify)
         VERIFY="true"

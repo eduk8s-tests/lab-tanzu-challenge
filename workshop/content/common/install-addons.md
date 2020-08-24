@@ -10,6 +10,6 @@ line: 1
 Make sure you save the file, and then run this script:
 
 ```terminal:execute
-command: installer/install --kubeconfig <FILE>
+command: installer/install --kubeconfig installer/kubeconfig.yaml
 session: 1
 ```

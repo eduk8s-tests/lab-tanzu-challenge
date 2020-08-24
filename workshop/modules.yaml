@@ -5,11 +5,17 @@ modules:
     common/registry-credentials:
         name: Registry Credentials
     developer/story:
-        name: Challenge story - Developer
+        name: Story (Dev)
+    developer/story:
+        name: Tasks (Dev)
     devops/story:
-        name: Challenge story - DevOps
+        name: Story (DevOps)
+    devops/story:
+        name: Tasks (DevOps)
     operations/story:
-        name: Challenge story - Operations
+        name: Story (Ops)
+    operations/story:
+        name: Tasks (Ops)
     challenge-summary:
         name: Challenge Summary
         exit_sign: Finish Challenge

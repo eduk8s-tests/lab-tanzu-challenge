@@ -4,5 +4,6 @@ modules:
     activate:
     - challenge-overview
     - developer/story
+    - developer/tasks
     - common/registry-credentials
     - challenge-summary

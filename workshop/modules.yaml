@@ -1,0 +1,4 @@
+modules:
+    registry-credentials:
+        name: Registry Credentials
+        exit_sign: Have Fun!!

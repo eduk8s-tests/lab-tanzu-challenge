@@ -1,0 +1,5 @@
+name: Tanzu Challenge - DevOps
+
+modules:
+    activate:
+    - registry-credentials

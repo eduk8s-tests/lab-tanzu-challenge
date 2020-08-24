@@ -1,0 +1,72 @@
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: lab-tanzu-challenge-developer
+spec:
+  title: Tanzu Challenge - Developer
+  description: Provides instructions to do the Tanzu Challenge, Developer story
+  url: https://github.com/eduk8s-tests/lab-tanzu-challenge
+  content:
+    files: github.com/eduk8s-tests/lab-tanzu-challenge
+  session:
+    namespaces:
+      budget: x-small
+    applications:
+      terminal:
+        enabled: false
+      registry:
+        enabled: true
+    env:
+    - name: DEFAULT_PAGE
+      value: /workshop/
+    - name: WORKSHOP_FILE
+      value: workshop-developer.yaml
+---
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: lab-tanzu-challenge-devops
+spec:
+  title: Tanzu Challenge - DevOps
+  description: Provides instructions to do the Tanzu Challenge, DevOps story
+  url: https://github.com/eduk8s-tests/lab-tanzu-challenge
+  content:
+    files: github.com/eduk8s-tests/lab-tanzu-challenge
+  session:
+    namespaces:
+      budget: x-small
+    applications:
+      terminal:
+        enabled: false
+      registry:
+        enabled: true
+    env:
+    - name: DEFAULT_PAGE
+      value: /workshop/
+    - name: WORKSHOP_FILE
+      value: workshop-devops.yaml
+---
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: lab-tanzu-challenge-operations
+spec:
+  title: Tanzu Challenge - Operations
+  description: Provides instructions to do the Tanzu Challenge, Operations story
+  url: https://github.com/eduk8s-tests/lab-tanzu-challenge
+  content:
+    files: github.com/eduk8s-tests/lab-tanzu-challenge
+  session:
+    namespaces:
+      budget: x-small
+    applications:
+      terminal:
+        enabled: false
+      registry:
+        enabled: true
+    env:
+    - name: DEFAULT_PAGE
+      value: /workshop/
+    - name: WORKSHOP_FILE
+      value: workshop-operations.yaml
+---

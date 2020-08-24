@@ -1,0 +1,5 @@
+name: Tanzu Challenge - Operations
+
+modules:
+    activate:
+    - registry-credentials

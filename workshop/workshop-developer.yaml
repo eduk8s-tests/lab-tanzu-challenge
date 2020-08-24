@@ -1,0 +1,5 @@
+name: Tanzu Challenge - Developer
+
+modules:
+    activate:
+    - registry-credentials

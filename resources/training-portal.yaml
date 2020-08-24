@@ -1,0 +1,18 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: TrainingPortal
+metadata:
+  name: eduk8s-tanzu-challenge
+spec:
+  portal:
+    registration:
+      type: anonymous
+  workshops:
+  - name: lab-tanzu-challenge-developer
+    capacity: 1
+    expires: 24h
+  - name: lab-tanzu-challenge-devops
+    capacity: 1
+    expires: 24h
+  - name: lab-tanzu-challenge-operations
+    capacity: 1
+    expires: 24h

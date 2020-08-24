@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 #
 # Note: This script requires bash 4+
 #
@@ -19,12 +19,9 @@ steps["kpack.1.path"]="k8s/kpack"
 #
 steps["tekton.1.name"]="tekton"
 steps["tekton.1.path"]="k8s/tekton"
-#
-steps["wavefront.1.name"]="wavefront"
-steps["wavefront.1.path"]="k8s/wavefront"
 
 FULL_DEV_STEPS="ingress testapp"
-FULL_DEVOPS_STEPS="ingress testapp kpack tekton wavefront"
+FULL_DEVOPS_STEPS="ingress testapp kpack tekton"
 FULL_OPS_STEPS=""
 
 #install_log=$(mktemp install.log.XXXXXX)
@@ -55,7 +52,7 @@ CLUSTER=`kubectl config view -o jsonpath='{ .contexts[?(@.name == "'$(kubectl co
 SHOW_HELP="n"
 OVERRIDE_FILE=${OVERRIDE_FILE:-""}
 OVERLAY_FILE=${OVERLAY_FILE:-""}
-CONFIRM=${CONFIRM:-""}
+CONFIRM=${CONFIRM:-"true"}
 VERIFY=${VERIFY:-""}
 UNINSTALL=${VERIFY:-""}
 file_opt=""
@@ -63,7 +60,7 @@ overlay_opt=""
 
 
 function getExternalIP {
-local IP=$(kubectl get svc/envoy -n tanzu-developer -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null)
+local IP=$(kubectl get svc/envoy -n projectcontour -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null)
 if [ "$IP" != "" ]; then
 python3 << EOF
 import socket
@@ -129,14 +126,9 @@ function help {
   echo "${SCRIPT_NAME} <COMMAND> <OPTIONS>"
   echo ""
   echo "Command:"
-  echo "    ingress            Installs an ingress controller to be used by the platform"
-  echo "    kpack              Installs KPack to support in cluster builds using CNB"
-  echo "    tekton             Installs Tekton to support pipelines"
-  echo "    wavefront          Installs Observability integration with Wavefront"
-  echo ""
-  echo "    full-dev           Developer install"
-  echo "    full-devops        DevOps install"
-  echo "    full-ops           Ops install"
+  echo "    dev           Developer install"
+  echo "    devops        DevOps install"
+  echo "    ops           Ops install"
 
   help-options
 }
@@ -144,12 +136,6 @@ function help {
 function help-options {
   echo ""
   echo "Options:"
-  echo "    -f=<FILE>|--file=<FILE>"
-  echo "    -f|--file <FILE>           Provides an override file to change default values"
-  echo "    -c|--confirm               Don't ask for confirmation. Execute the action immediately"
-  echo "    -v|--verify                Verifies the result of the process by executing a verification step"
-  echo "    -o=<FILE>|--overlay=<FILE>"
-  echo "    -o|--overlay <FILE>        Provides an overlay file, to alter install scripts"
   echo "    -u|--uninstall             Uninstalls a component"
   echo "    -h|--help                  Shows the help for the command"
 }
@@ -321,26 +307,22 @@ then
       shift # past argument
       execute tekton "$@"
       ;;
-    wavefront)
-      shift # past argument
-      execute wavefront "$@"
-      ;;
-    full-dev)
+    dev)
       shift # past argument
       full dev "$@"
       ;;
-    full-devops)
+    devops)
       shift # past argument
       full devops "$@"
       ;;
-    full-ops)
+    ops)
       shift # past argument
       full ops "$@"
       ;;
     *)
-      help "full-dev|full-devops|full-ops"
+      help "dev|devops|ops"
       ;;
   esac
 else
-  help "full-dev|full-devops|full-ops"
+  help "dev|devops|ops"
 fi

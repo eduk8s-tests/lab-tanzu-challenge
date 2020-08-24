@@ -1,5 +1,3 @@
-#@ load("@ytt:data", "data")
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -14,4 +12,3 @@ subjects:
 - kind: ServiceAccount
   name: envoy
   namespace: projectcontour
----

@@ -79,26 +79,3 @@ directories:
     manual: {}
   - path: config
     manual: {}
-
-##########
-# wavefront
-##########
-- path: k8s/wavefront
-  contents:
-  - path: upstream/collector
-    git:
-      url: https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes
-      ref: v1.2.1
-    includePaths:
-    - deploy/kubernetes/**/*
-  - path: upstream/proxy
-    git:
-      url: https://github.com/wavefrontHQ/wavefront-kubernetes
-      ref: master
-    includePaths:
-    - wavefront-proxy/wavefront.yaml
-    - ksm-all-in-one/kube-state.yaml
-  - path: downstream
-    manual: {}
-  - path: config
-    manual: {}

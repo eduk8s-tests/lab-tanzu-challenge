@@ -1,0 +1,4 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:assert", "assert")
+
+#@ w = data.values.wildcard_domain or assert.fail("missing wildcard_domain definition")

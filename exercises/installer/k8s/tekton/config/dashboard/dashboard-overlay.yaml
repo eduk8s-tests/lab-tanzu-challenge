@@ -35,8 +35,9 @@ spec:
   template:
     spec:
       containers:
-      #@overlay/match by=overlay.all
-      - env:
+      #@overlay/match by="name"
+      - name: webhooks-extension
+        env:
         #@overlay/match by="name",missing_ok=True
         #@overlay/merge
         - name: WEBHOOK_CALLBACK_URL

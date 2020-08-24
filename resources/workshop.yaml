@@ -64,9 +64,10 @@ spec:
         enabled: false
       registry:
         enabled: true
+    dashboards:
+    - name: Survey
+      url: https://forms.gle/jg3GH5N2gLqezceE6
     env:
-    - name: DEFAULT_PAGE
-      value: /workshop/
     - name: WORKSHOP_FILE
       value: workshop-operations.yaml
 ---

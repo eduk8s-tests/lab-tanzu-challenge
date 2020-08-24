@@ -6,15 +6,15 @@ modules:
         name: Registry Credentials
     developer/story:
         name: Story (Dev)
-    developer/story:
+    developer/tasks:
         name: Tasks (Dev)
     devops/story:
         name: Story (DevOps)
-    devops/story:
+    devops/tasks:
         name: Tasks (DevOps)
     operations/story:
         name: Story (Ops)
-    operations/story:
+    operations/tasks:
         name: Tasks (Ops)
     challenge-summary:
         name: Challenge Summary

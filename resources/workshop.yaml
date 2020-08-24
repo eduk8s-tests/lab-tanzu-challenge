@@ -19,6 +19,8 @@ spec:
     env:
     - name: WORKSHOP_FILE
       value: workshop-developer.yaml
+    - name: EXERCISES_DIR
+      value: exercises/developer
 ---
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
@@ -35,14 +37,14 @@ spec:
       budget: x-small
     applications:
       terminal:
-        enabled: false
+        enabled: true
       registry:
         enabled: true
     env:
-    - name: DEFAULT_PAGE
-      value: /workshop/
     - name: WORKSHOP_FILE
       value: workshop-devops.yaml
+    - name: EXERCISES_DIR
+      value: exercises/developer
 ---
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop

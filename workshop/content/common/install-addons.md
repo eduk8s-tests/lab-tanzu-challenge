@@ -41,7 +41,7 @@ metadata:
   namespace: installer
 spec:
   containers:
-  - image: quay.io/failk8s/test
+  - image: quay.io/failk8s/installer
     name: installer
     command:
       - "/home/kubeuser/install"

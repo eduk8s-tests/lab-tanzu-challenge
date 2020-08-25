@@ -55,6 +55,6 @@ text: |
 
 Then, you can monitor the install process by tailing the execution of the installer pod:
 
-```
+```copy
 kubectl logs -f pod/installer -n installer
 ```

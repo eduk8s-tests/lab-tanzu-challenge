@@ -13,9 +13,9 @@ spec:
       budget: x-small
     applications:
       terminal:
-        enabled: true
+        enabled: false
       editor:
-        enabled: true
+        enabled: false
       registry:
         enabled: true
     dashboards:
@@ -24,8 +24,6 @@ spec:
     env:
     - name: WORKSHOP_FILE
       value: workshop-developer.yaml
-    - name: EXERCISES_DIR
-      value: exercises/developer
     - name: CHALLENGE_PERSONA
       value: dev
 ---
@@ -44,9 +42,9 @@ spec:
       budget: x-small
     applications:
       terminal:
-        enabled: true
+        enabled: false
       editor:
-        enabled: true
+        enabled: false
       registry:
         enabled: true
     dashboards:
@@ -76,6 +74,8 @@ spec:
     applications:
       terminal:
         enabled: false
+      editor:
+        enabled: false
       registry:
         enabled: true
     dashboards:
@@ -84,6 +84,8 @@ spec:
     env:
     - name: WORKSHOP_FILE
       value: workshop-operations.yaml
+    - name: EXERCISES_DIR
+      value: exercises/operations
     - name: CHALLENGE_PERSONA
       value: devops
 ---

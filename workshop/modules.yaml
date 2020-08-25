@@ -2,8 +2,8 @@ modules:
     challenge-overview:
         name: Challenge Overview
         exit_sign: Start Challenge
-    common/registry-credentials:
-        name: Registry Credentials
+    common/registry:
+        name: Container Registry
     developer/story:
         name: Story (Dev)
     developer/tasks:

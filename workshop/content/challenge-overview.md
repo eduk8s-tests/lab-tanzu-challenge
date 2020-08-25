@@ -6,7 +6,7 @@ The goal of this exercise is to have you go through a real world scenario of a c
 * Half way through
 * At the end of the exercise. 
 
-You will find the survey in a tab in the platform.
+You will find the survey in a tab at the right of this documentation.
 
 ```dashboard:open-dashboard
 name: Survey

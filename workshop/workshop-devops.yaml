@@ -6,5 +6,5 @@ modules:
     - devops/story
     - devops/tasks
     - common/install-addons
-    - common/registry-credentials
+    - common/registry
     - challenge-summary

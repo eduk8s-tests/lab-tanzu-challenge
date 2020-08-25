@@ -5,5 +5,4 @@ modules:
     - challenge-overview
     - operations/story
     - operations/tasks
-    - common/registry-credentials
     - challenge-summary

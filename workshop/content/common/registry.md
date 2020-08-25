@@ -1,4 +1,8 @@
-The credentials for your temporary image registry are:
+As part of your journey you will need to use a Container Registry to host the images you build. You can obviously use any of the public container registries (e.g. DockerHub, Quay.io,...) but we wanted to avoid you needing to have or use an account on any of them. 
+
+For this reason, we do provide you with a Container Registry, hosted on this platform, that will work as long as your challenge lasts (24 hours).
+
+The credentials to access this temporary container image registry are:
 
 ```
 REGISTRY_HOST="{{ registry_host }}"
@@ -25,7 +29,4 @@ You can then push the image to the image registry using:
 docker push {{ registry_host }}/myimage:latest
 ```
 
-The image registry will be available for a period of 24 hours.
-
-If you no longer require the image registry and wish to delete it sooner,
-then click on [this link]({{ ENV_RESTART_URL }}) link.
+Feel free to use this registry, or any one of your choice.

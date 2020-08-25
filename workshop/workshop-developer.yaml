@@ -6,5 +6,5 @@ modules:
     - developer/story
     - developer/tasks
     - common/install-addons
-    - common/registry-credentials
+    - common/registry
     - challenge-summary

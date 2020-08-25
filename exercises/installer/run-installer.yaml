@@ -1,13 +1,3 @@
-We understand that as Developer or DevOps, you will expect some capabilities to exist in your cluster. For this reason, we want to offload you from the need to install those and we do provide an installer that will install them in your TMC provisioned cluster.
-
-In order for us to provision your cluster from this platform, we would need access to your `kubeconfig` and `tmc` configuration. Hence, we do provide an installer that we expect you to run, but should be really easy.
-
-
-You only need to execute this in your terminal:
-
-```workshop:copy
-test: |
-cat <<EOF | kubectl create -f -
 kind: Namespace
 apiVersion: v1
 metadata:
@@ -50,5 +40,3 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Never
   serviceAccountName: installer
-EOF
-```

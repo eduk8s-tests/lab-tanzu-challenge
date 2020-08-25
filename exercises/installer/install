@@ -43,10 +43,6 @@ WORK_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-CLUSTER=`kubectl config view -o jsonpath='{ .contexts[?(@.name == "'$(kubectl config current-context 2>/dev/null)'")].context.cluster }' 2>/dev/null`
-[ "x$CLUSTER" == "x" ] && echo "kubectl could not determine current cluster or is not installed" && exit 1
-
-
 #
 # CLI_ARGS
 SHOW_HELP="n"
@@ -61,17 +57,14 @@ overlay_opt=""
 
 
 function getExternalIP {
-local kubeconfig=""
-if [ "$KUBECONFIG_FILE" != "" ]; then
-  kubeconfig="--kubeconfig=$KUBECONFIG_FILE "
-fi
-local IP=$(kubectl $kubeconfig get svc/envoy -n projectcontour -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null)
-if [ "$IP" != "" ]; then
-python3 << EOF
-import socket
-print(socket.gethostbyname("$IP"))
-EOF
-fi
+  local kubeconfig=""
+  if [ "$KUBECONFIG_FILE" != "" ]; then
+    kubeconfig="--kubeconfig=$KUBECONFIG_FILE "
+  fi
+  local IP=$(kubectl $kubeconfig get svc/envoy -n projectcontour -o jsonpath='{ .status.loadBalancer.ingress[0].hostname }' 2> /dev/null | xargs dig +short | tail -n 1)
+  if [ "$IP" != "" ]; then
+    echo "$IP"
+  fi
 }
 
 #

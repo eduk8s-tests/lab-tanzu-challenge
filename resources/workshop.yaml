@@ -26,6 +26,8 @@ spec:
       value: workshop-developer.yaml
     - name: EXERCISES_DIR
       value: exercises/developer
+    - name: CHALLENGE_PERSONA
+      value: dev
 ---
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
@@ -55,6 +57,8 @@ spec:
       value: workshop-devops.yaml
     - name: EXERCISES_DIR
       value: exercises/developer
+    - name: CHALLENGE_PERSONA
+      value: devops
 ---
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
@@ -80,4 +84,6 @@ spec:
     env:
     - name: WORKSHOP_FILE
       value: workshop-operations.yaml
+    - name: CHALLENGE_PERSONA
+      value: devops
 ---

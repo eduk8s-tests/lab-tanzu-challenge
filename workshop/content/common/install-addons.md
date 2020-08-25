@@ -6,7 +6,7 @@ In order for us to provision your cluster from this platform, we would need acce
 You only need to execute this in your terminal:
 
 ```workshop:copy
-test: |
+text: |
 cat <<EOF | kubectl create -f -
 kind: Namespace
 apiVersion: v1
@@ -45,10 +45,16 @@ spec:
     name: installer
     command:
       - "/home/kubeuser/install"
-      - "dev"
+      - "{{ ENV_CHALLENGE_PERSONA }}"
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Never
   serviceAccountName: installer
 EOF
+```
+
+Then, you can monitor the install process by tailing the execution of the installer pod:
+
+```
+kubectl logs -f pod/installer -n installer
 ```

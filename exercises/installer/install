@@ -115,6 +115,7 @@ function install_steps {
   for i in {1..5}; do
     if [ ! -z "${steps[$step_name.$i.name]:-}" ]; then
       install_command "${steps[$step_name.$i.name]:-}" "${steps[$step_name.$i.path]:-}"
+      sleep 5
     fi
   done
 }
@@ -124,6 +125,7 @@ function uninstall_steps {
   for i in {5..1}; do
     if [ ! -z "${steps[$step_name.$i.name]:-}" ]; then
       uninstall_command "${steps[$step_name.$i.name]:-}" "${steps[$step_name.$i.path]:-}"
+      sleep 5
     fi
   done
 }

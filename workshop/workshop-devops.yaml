@@ -7,4 +7,5 @@ modules:
     - devops/tasks
     - common/install-addons
     - common/registry
+    - devops/tekton
     - challenge-summary

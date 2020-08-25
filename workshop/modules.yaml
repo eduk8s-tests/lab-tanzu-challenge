@@ -8,10 +8,14 @@ modules:
         name: Story (Dev)
     developer/tasks:
         name: Tasks (Dev)
+    developer/java:
+        name: Code in Java
     devops/story:
         name: Story (DevOps)
     devops/tasks:
         name: Tasks (DevOps)
+    devops/tekton:
+        name: Tekton for Cloud Native CI/CD
     operations/story:
         name: Story (Ops)
     operations/tasks:

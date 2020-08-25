@@ -1,0 +1,1 @@
+This will give some informatio on Tekton and what are the basic building blocks and the pipeline that will need to be built.

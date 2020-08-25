@@ -5,4 +5,5 @@ modules:
     - challenge-overview
     - operations/story
     - operations/tasks
+    - operations/reference-cluster
     - challenge-summary

@@ -7,4 +7,5 @@ modules:
     - developer/tasks
     - common/install-addons
     - common/registry
+    - developer/java
     - challenge-summary

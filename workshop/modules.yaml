@@ -20,6 +20,8 @@ modules:
         name: Story (Ops)
     operations/tasks:
         name: Tasks (Ops)
+    operations/reference-cluster:
+        name: Reference cluster for developers
     common/install-addons:
         name: Install Cluster Addons
     challenge-summary:

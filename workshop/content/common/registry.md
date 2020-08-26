@@ -1,6 +1,6 @@
-As part of your journey you will need to use a Container Registry to host the images you build. You can obviously use any of the public container registries (e.g. DockerHub, Quay.io,...) but we wanted to avoid you needing to have or use an account on any of them. 
+As part of the challenge, you will need to use a Container Registry to host the images you build. You can obviously use any of the public container registries (e.g. DockerHub or Quay.io), but we wanted to avoid you needing an account for any of them. 
 
-For this reason, we do provide you with a Container Registry, hosted on this platform, that will work as long as your challenge lasts (24 hours).
+For this reason, we do provide you with a Container Registry hosted on this platform that will work as long as your challenge lasts (i.e. 24 hours).
 
 The credentials to access this temporary container image registry are:
 
@@ -10,7 +10,7 @@ REGISTRY_USERNAME="{{ registry_username }}"
 REGISTRY_PASSWORD="{{ registry_password }}"
 ```
 
-To login to the registry using ``docker``, run:
+To login to the registry using `docker`, run:
 
 ```
 docker login -u {{ registry_username }} -p {{ registry_password }} {{ registry_host }}
@@ -29,4 +29,4 @@ You can then push the image to the image registry using:
 docker push {{ registry_host }}/myimage:latest
 ```
 
-Feel free to use this registry, or any one of your choice.
+Feel free to use this registry or any one of your choice.

@@ -8,7 +8,7 @@ During this challenge you will:
 6. Deploy your application to the cluster
 7. Expose your application with a URL
 8. Check that your application is running
-9. Deploy a database of type X (using whatever mechanism you see fit)
+9. Deploy a MySQL database
 10. Connect your application to the database
 11. Access your application and test that it connects to your database
 12. Make a change in the code and deploy the new version

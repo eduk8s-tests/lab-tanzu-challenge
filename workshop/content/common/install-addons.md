@@ -1,7 +1,4 @@
-We understand that as Developer or DevOps, you will expect some capabilities to exist in your cluster. For this reason, we want to offload you from the need to install those and we do provide an installer that will install them in your TMC provisioned cluster.
-
-In order for us to provision your cluster from this platform, we would need access to your `kubeconfig` and `tmc` configuration. Hence, we do provide an installer that we expect you to run, but should be really easy.
-
+We understand that you will expect some capabilities to exist in your cluster. For this reason, we have provided an installer that will install supplementary tools in your TMC provisioned cluster.
 
 You only need to execute this in your terminal:
 

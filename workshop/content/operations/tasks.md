@@ -13,5 +13,5 @@ During this challenge you will:
 6. Verify that the application scales to one when accessed
 7. Verify that the application scales to zero after some inactivity time
 8. Open Tanzu observability and monitor your cluster from it
-9. In Tanzu Observability you should also see information about your application
+9. In Tanzu Observability, you should also see information about your application
 10. You’ve done it!
